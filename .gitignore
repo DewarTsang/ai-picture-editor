@@ -22,8 +22,6 @@ __pycache__/
 node_modules/
 dist/
 *.tsbuildinfo
-package-lock.json
-pnpm-lock.yaml
 
 # 运行时数据
 .data/
