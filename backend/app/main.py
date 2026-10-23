@@ -3,13 +3,13 @@ from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 
 from fastapi import APIRouter, FastAPI
-from fastapi.staticfiles import StaticFiles
 
 from app import logsetup, storage
 from app.config import get_settings
 from app.middleware import RequestLogger
 from app.queue import close_queue
 from app.routers import assets, auth, batches, events, health, runs, sessions
+from app.staticfiles import SPAMount
 
 settings = get_settings()
 
@@ -47,4 +47,4 @@ app.include_router(events.router)
 
 # 生产环境下前端与 API 同源，静态产物由本服务托管；开发环境走 Vite dev proxy。
 if settings.frontend_dist.is_dir():
-    app.mount("/", StaticFiles(directory=settings.frontend_dist, html=True), name="frontend")
+    app.mount("/", SPAMount(directory=settings.frontend_dist, html=True), name="frontend")
