@@ -40,6 +40,10 @@ dev = [
     "ruff",
 ]
 
+[[tool.uv.index]]
+name = "tuna"
+url = "https://pypi.tuna.tsinghua.edu.cn/simple"
+
 [tool.ruff]
 line-length = 100
 exclude = ["migrations"]
