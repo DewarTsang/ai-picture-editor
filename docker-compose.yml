@@ -62,7 +62,7 @@ services:
       DATABASE_URL: postgresql+asyncpg://retouch:retouch_dev@postgres:5432/retouch
       REDIS_URL: redis://redis:6379
       S3_ENDPOINT: http://minio:9000
-      S3_PUBLIC_ENDPOINT: http://localhost:7313
+      S3_PUBLIC_ENDPOINT: ${S3_PUBLIC_ENDPOINT:-http://localhost:7313}
     volumes:
       - cv_models:/root/.u2net
     depends_on:
@@ -80,7 +80,7 @@ services:
       DATABASE_URL: postgresql+asyncpg://retouch:retouch_dev@postgres:5432/retouch
       REDIS_URL: redis://redis:6379
       S3_ENDPOINT: http://minio:9000
-      S3_PUBLIC_ENDPOINT: http://localhost:7313
+      S3_PUBLIC_ENDPOINT: ${S3_PUBLIC_ENDPOINT:-http://localhost:7313}
     volumes:
       - cv_models:/root/.u2net
     depends_on:
